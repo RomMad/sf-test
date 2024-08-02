@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'people.label'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mb-4">{{ 'people.directory.label'|trans }}</h1>
+
+        {{ include('_shared/_flash_message.html.twig') }}
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'lastname.label'|trans }}</th>
+                    <th>{{ 'firstname.label'|trans }}</th>
+                    <th>{{ 'birthdate.label'|trans }}</th>
+                    <th>{{ 'actions.label'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in people %}
+                    <tr>
+                        <td class="align-middle">{{ person.lastname }}</td>
+                        <td class="align-middle">{{ person.firstname }}</td>
+                        <td class="align-middle">{{ person.birthdate|date('d/m/Y') }}</td>
+                        <td class="align-middle">
+                            <a href="{{ path('app_person_show', {id: person.id}) }}" class="btn btn-primary">
+                                {{- 'show.label'|trans -}}
+                            </a>
+                            <a href="{{ path('app_person_edit', {id: person.id}) }}" class="btn btn-secondary">
+                                {{- 'edit.label'|trans -}}
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">{{ 'no_record.label'|trans }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_person_new') }}" class="btn btn-primary my-2">
+            {{- 'person.create.label'|trans -}}
+        </a>
+    </div>
+{% endblock %}

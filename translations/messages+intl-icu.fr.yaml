@@ -1,0 +1,28 @@
+# Common
+select.placeholder: -- Sélectionner --
+no_record.label: Aucun enregistrement
+actions.label: Actions
+add.label: Ajouter
+cancel.label: Annuler
+delete.label: Supprimer
+edit.label: Éditer
+edition.label: Édition
+save.label: Sauvegarder
+show.label: Voir
+back_to_directory.label: Retour au répertoire
+
+# Person
+lastname.label: Nom
+firstname.label: Prénom
+birthdate.label: Date de naissance
+
+people.label: Personnes
+people.directory.label: Répertoire des personnes
+person:
+    create.label: Créer une nouvelle personne
+    new.label: Nouvelle personne
+    created_successfully: La personne a été créée avec succès.
+    updated_successfully: La personne a été mise à jour avec succès.
+    deleted_successfully: La personne a été supprimée avec succès.
+    deleted_error: La personne n'a pas pu être supprimée.
+    confirm_delete: Êtes-vous sûr de vouloir supprimer cette personne ?
