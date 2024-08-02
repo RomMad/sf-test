@@ -1,72 +1,6 @@
 # Test PHP/Symfony
 
-*Durée : 1h-2h*
-
-L'application Symfony permet d'enregistrer et de modifier une liste de personnes.
-
-Il vous est demandé de créer une nouvelle fonctionnalité permettant d'ajouter des interventions (1 ou plusieurs) réalisées auprès des personnes.
-
-Ces interventions doivent contenir les informations suivantes :
-
-- Date d'intervention
-- Nom de l'intervenant
-- Type d'intervention
-- Commentaire descriptif
-- Date de création (générée automatiquement)
-
-* On doit pouvoir créer/voir/modifier/supprimer des interventions.
-* L'ajout d'une interventions doit se faire à partir en allannt sur la page d'une personne.
-* Plusieurs interventions peuvent être réalisées auprès d'une même personne.
-* Toutes les interventions doivent être visibles sur une page sous la forme d'un tableau :
-  - Date d'intervention
-  - Nom et prénom de la personne
-  - Type d'intervention
-  - Nom de l'intervenant
-
-## Git
-
-Créer un dépôt git (sur Github ou Gitlab).
-
-## Back-end (PHP - Symfony)
-
-**A faire :**
-
-- Créer une *Entity* représentant une intervention et utiliser les contraintes :
-  - Le champ « Date d'intervention » est un champ date formaté (JJ/MM/AAAA)
-  - Le champs « Nom de l'intervenant » ne peut pas être vide (champ texte)
-  - Le champ « Type d'intervention » doit être une liste déroulante (Aide alimentaire, Couverture, Lien social, Autre), mais doit être stocké en base de données en tant que valeur numérique (int)
-- Créer un *Repository* avec une méthode personnalisée pour récupérer les 5 dernières interventions triées de la plus récente à plus ancienne (**sans** utiliser aux méthodes génériques *findAll*, *findBy*, etc.)
-- Créer un *Controller* avec, à minima, les routes pour :
-  - Créer une intervention
-  - Voir toutes les interventions réalisées auprès d'une personne
-  - Supprimer une intervention
-- Créer un formulaire avec le composant *Form* de Symfony
-- Créer des vues *Twig* qui étendent le template
-
-**Consignes à respecter :**
-
-- Enregistrer les informations en base de données
-- Vérifier la validité des données avant l'enregistrement en base de données via le composant *Form*
-- Ne PAS utiliser de bundle tiers (type EasyAdmin) pour créer le controller et les vues
-- Respecter, autant que faire se peut, les bonnes pratiques PHP et Symfony
-- Ecrire le code en anglais (variables, méthodes, classes…)
-- Utiliser les clés de traduction
-- Utiliser une classe Enum pour la liste déroulante
-- Vous pouvez utiliser
-
-## Front-end (Twig - Javacript)
-
-- La page doit être responsive
-- Ajouter un lien dans la navbar
-- Toutes les dates doivent s'afficher au format "dd/mm/yyyy"
-
-**En JavaScript :**
-
-- Pouvoir supprimer une interventions en base de données via une requête Ajax
-- Respecter la POO
-
-Vous devez utiliser Twig et Bootstrap.
-
+*Durée : 1h30-2h*
 
 ## Requirements
 
@@ -84,3 +18,73 @@ symfony console doctrine:database:create
 symfony console doctrine:fixtures:load
 symfony serve -d
 ```
+
+## Instructions
+
+L'application Symfony permet d'enregistrer et de modifier une liste de personnes.
+
+Il vous est demandé de créer une **nouvelle fonctionnalité** permettant d'ajouter des **interventions** (une ou plusieurs) réalisées auprès des personnes.
+
+Une intervention doit avoir les informations suivantes :
+
+- Date d'intervention (au format "JJ/MM/AAAA")
+- Nom de l'intervenant
+- Type d'intervention
+- Commentaire descriptif
+- Date de création (générée automatiquement)
+
+### Tâches à réaliser
+
+1. **Créer une entité Intervention**
+
+  * La « Date d'intervention » est obligatoire.
+  * Le « Nom de l'intervenant » ne peut pas être vide (champ texte).
+  * Le « Type d'intervention » doit être une liste déroulante (Aide alimentaire, Couverture, Lien social, Autre) et stocké en base de données en tant que valeur numérique (int).
+  * Le « Commentaire » est de type texte.
+  * La « Date de création » est générée automatiquement.
+
+2. **Créer le CRUD pour les interventions**
+
+  * Créer une intervention.
+  * Voir une intervention.
+  * Modifier une intervention.
+  * Supprimer une intervention.
+  * Ne pas utiliser de bundle tiers (type EasyAdmin) pour créer le contrôleur et les vues.
+
+3. **Créer un repository personnalisé**
+  
+* Ajouter une méthode pour récupérer les 5 dernières interventions d'une personne triées de la plus récente à la plus ancienne (sans utiliser les méthodes génériques findAll, findBy, etc.).
+
+4. **Créer un formulaire avec le composant Form**
+
+* Utiliser une classe Enum pour la liste déroulante.
+* Vérifier la validité des données avant l'enregistrement via le composant Form.
+
+5. **Créer des vues Twig**
+
+* Étendre le template de base.
+* Ajouter des interventions via la page d'une personne.
+* Afficher les interventions sur la page de la personne (*app_person_show*).
+* Afficher toutes les interventions sur une nouvelle page sous forme de tableau :
+  * Date d'intervention,
+  * Nom et prénom de la personne,
+  * Nom de l'intervenant,
+  * Type d'intervention,
+  * Commentaire,
+  * Date de création.
+* Ajouter un lien "Interventions" dans la bare de navigation.
+* Afficher toutes les dates au format "dd/mm/yyyy".
+* Utiliser les clés de traduction.
+* Utiliser Bootstrap.
+* L'affichage doit être responsive.
+
+1. **Supprimer une intervention via AJAX**
+
+   * La suppression d'une intervention via la page d'une personne doit se faire sans rafraîchir la page en utilisant Javascript.
+
+### Consignes générales à respecter
+
+- Enregistrer les informations en base de données.
+- Respecter les bonnes pratiques PHP et Symfony.
+- Écrire le code en anglais (variables, méthodes, classes…).
+- Respecter la POO.

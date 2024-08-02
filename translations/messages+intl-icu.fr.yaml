@@ -1,6 +1,6 @@
 # Common
 select.placeholder: -- Sélectionner --
-no_record.label: Aucun enregistrement
+no_records_found.label: Aucun enregistrement
 actions.label: Actions
 add.label: Ajouter
 cancel.label: Annuler
@@ -9,7 +9,9 @@ edit.label: Éditer
 edition.label: Édition
 save.label: Sauvegarder
 show.label: Voir
+update.label: Mettre à jour
 back_to_directory.label: Retour au répertoire
+directory.label: Répertoire
 
 # Person
 lastname.label: Nom

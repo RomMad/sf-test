@@ -7,7 +7,7 @@
         <h1 class="mb-4">{{ 'edition.label'|trans }}</h1>
 
         {{ include('_shared/_flash_message.html.twig') }}
-        {{ include('app/person/_form.html.twig', {button_label: 'save.label'}) }}
+        {{ include('app/person/_form.html.twig', {button_label: 'update.label'}) }}
 
         <a href="{{ path('app_person_index') }}" class="btn btn-secondary my-2">
             {{ 'back_to_directory.label'|trans }}
